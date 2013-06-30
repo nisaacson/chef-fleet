@@ -1,0 +1,10 @@
+#!upstart
+description "Fleet Hub Service"
+start on startup
+stop on shutdown
+
+respawn
+script
+  chdir <%= node[:web][:home]%>/fleet/hub
+  exec sudo -u <%= node[:web][:user] %> fleet-hub --port=<%= node[:fleet][:port] %> --secret=<%= node[:fleet][:secret] %> 2>&1 | logger -t fleet-hub-service
+end script

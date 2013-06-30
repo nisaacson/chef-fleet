@@ -1,0 +1,10 @@
+#!upstart
+description "Fleet Drone Service"
+start on startup
+stop on shutdown
+
+respawn
+script
+  chdir <%= node[:web][:home]%>/fleet/drone
+  exec sudo -u <%= node[:web][:user] %> fleet-drone --hub=<%= node[:fleet][:host] %>:<%= node[:fleet][:port] %> --secret=<%= node[:fleet][:secret] %> 2>&1 | logger -t fleet-drone-service
+end script
