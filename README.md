@@ -1,4 +1,4 @@
-# fleet cookbook
+# Fleet Cookbook
 
 Set up a fleet hub or drone to run as an upstart service.
 
@@ -6,7 +6,7 @@ Set up a fleet hub or drone to run as an upstart service.
 
 The following cookbooks are required
 
-* tabrific-web-user - available from the private tabrific repo on bitbucket
+* node-web-user - available from [https://github.com/nisaacson/chef-node-web-user](https://github.com/nisaacson/chef-node-web-user)
 * lowport-node - available at [https://github.com/nisaacson/lowport-node](https://github.com/nisaacson/lowport-node)
 * build-essential
 
