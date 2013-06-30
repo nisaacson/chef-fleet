@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 include_recipe "build-essential"
-include_recipe "tabrific-web-user::default"
+include_recipe "node-web-user::default"
 include_recipe "lowport-node::default"
 bash "install_fleet" do
   user 'root'
