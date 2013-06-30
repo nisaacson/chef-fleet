@@ -13,6 +13,22 @@ The following cookbooks are required
 
 # Usage
 
+To use this when provisioning a chef node, include the `fleet::drone` or `fleet::hub` recipe.
+
+To test out the cookbook you can use vagrant to create a virtual machine with a single hub and drone running. To instiate the virtual machine, execute in the root directory of this project
+
+```bash
+# setup the virtual machine
+vagrant up
+# login to the virtual machine via ssh
+vagrant ssh
+# make sure fleet is running. You should see a process for the hub and another for the drone
+ps -ef | grep node
+
+# try to connect to the hub, assuming you used the default attributes in ./attributes/default.rb
+fleet-ps --hub=localhost:3000 --secret=beepboop
+```
+
 # Attributes
 
 You must specify the fleet `port`, `host`, and `secret`. Note that host should be set to localhost when using the `fleet::hub` recipe. When using the `fleet::drone` recipe, `host` should be the host address of a valid fleet hub
